@@ -1,0 +1,27 @@
+.lottery-container {
+    width: 800px;
+    *zoom: 1;
+}
+
+.lottery-container:after {
+    display: block;
+    content: " ";
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.lottery-reward {
+    float: left;
+    _display: inline;
+    margin-right: 5px;
+    width: 118px;
+    height: 151px;
+    border: 1px solid transparent;
+    visibility: hidden;
+}
+
+.lottery-reward.on {
+    border-color: #aaaaaa;
+    visibility: visible;
+}

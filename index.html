@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="lwenn">
+    <title>lottery-lwenn</title>
+    <link rel="stylesheet" href="css/demo.css">
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/xcode.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <style>
+        .wrap {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .lottery li {
+            margin-bottom: 5px;
+            line-height: 150px;
+            text-align: center;
+            border-color: #eee;
+            visibility: visible;
+        }
+        .lottery li.on {
+            border-color: #4ba6fc;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Lottery</h1>
+    <div class="wrap">
+        <div class="panel">
+            <div class="panel-head">
+                <h3 class="panel-title">Example</h3>
+            </div>
+            <div class="panel-body">
+                <div class="lottery">
+                    <ul>
+                        <li>抽我</li>
+                        <li>抽我</li>
+                        <li>抽我</li>
+                        <li>抽我</li>
+                        <li>抽我</li>
+                        <li>抽我</li>
+                        <li>抽我</li>
+                        <li>抽我</li>
+                        <li>抽我</li>
+                    </ul>
+                    <form id="play_type">
+                        <label><input type="radio" name="play" value="in_turn" checked="checked" />顺序</label>
+                        <label><input type="radio" name="play" value="random" />随机</label>
+                    </form>
+                    <a class="button" href="####">点击抽奖</a>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-head">
+                <h3 class="panel-title">Code</h3>
+            </div>
+            <div class="panel-body">
+                <pre class="code"><code></code></pre>
+                <a class="code_btn" target="_blank" href="js/lottery.js">plugin code</a>
+            </div>
+        </div>
+        <p class="author">
+            ©lwenn
+        </p>
+    </div>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/lottery.js"></script>
+    <script id="use_method">
+        /*
+         * 一个简单的例子：
+         * var lottery = new lwenn.Lottery($(".lottery ul"), function() { alert("over"); });
+         * lottery.playInTurn(3);
+         * 开发中可能的用法如下
+         */
+        var isPlaying = false; //是否正在抽奖
+        var lottery = new lwenn.Lottery($(".lottery ul"));
+        $(".lottery a").click(function(e) {
+            e.preventDefault();
+            if (isPlaying) {
+                return;
+            }
+            isPlaying = true;
+            var result = parseInt(Math.random() * $(".lottery li").length);
+            //若每次抽奖结束操作不同，可以如下设置
+            lottery.setOver(function() {
+                alert("result: " + result);
+                isPlaying = false;
+            });
+            if ($("#play_type input:checked").val() == "random") { //例子中选中的抽奖方式
+                lottery.playRandom(result);
+            } else {
+                lottery.playInTurn(result);
+            }
+        });
+    </script>
+    <script>
+        var html = $("#use_method").html();
+        $(".code code").html(html);
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+</html>
