@@ -7,8 +7,8 @@ How to use
 --
 ####HTML
 * Download the JavaScript code
-* Include the jQuery at the top of the <head> of your page
-* Include the following code after the jQuery <script>
+* Include the jQuery at the top of the &lt;head&gt; of your page
+* Include the following code after the jQuery &lt;script&gt;
 ```html
 <script type="text/javascript" src="js/lottery.js"></script>
 ```
@@ -25,7 +25,7 @@ Lottery模块用于抽奖过程的展示，你可以让它顺序展示或随机�
 --
 ####HTML
 * 下载JS代码
-* 在页面的<head>里引入jQuery代码
+* 在页面的&lt;head&gt;里引入jQuery代码
 * 在jQuery代码后面引入下面的html代码
 ```html
 <script type="text/javascript" src="js/lottery.js"></script>
@@ -40,37 +40,32 @@ API
 ==
 ####lwenn.Lottery(element[, over ][, options])
 构造器，参数element, over, options
-
 * 返回：Lottery
 * element：类型-jQuery或DOM object，抽奖的列表ul
 * over(可选)：类型-Function，抽奖结束执行的函数
 * options(可选)：类型-Object，包含展示参数的对象
 	* times(默认:3)：类型-Number，一圈抽奖动画播放的次数
     * duration(默认:150)：类型-Number，抽奖选中跳转的间隙（毫秒）
+
 ####setTimes(times)
 设置完整一圈动画播放的次数，返回
-
 * 返回：Lottery
 * times：类型-Number，一圈抽奖动画播放的次数
 
 ####setDuration(duration)
 设置抽奖选中跳转的间隙（毫秒）
-
 * 返回：Lottery
 * duration：类型-Number，抽奖选中跳转的间隙（毫秒）
 
 ####setOver(fun)
 设置抽奖结束执行的函数
-
 * 返回：Lottery
 * fun：类型-Function，抽奖结束执行的函数
 
 ####playRandom(result)
 以随机次序展示抽奖动画
-
 * result：类型-Number，抽中的下标，从0开始
 
 ####playInTurn(result)
 以顺序的方式从第0个li开始展示抽奖动画
-
 * result：类型-Number，抽中的下标，从0开始
