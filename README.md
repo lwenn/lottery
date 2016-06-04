@@ -48,7 +48,7 @@ API
     * duration(默认:150)：类型-Number，抽奖选中跳转的间隙（毫秒）
 
 ####setTimes(times)
-设置完整一圈动画播放的次数，返回
+设置完整一圈动画播放的次数
 * 返回：Lottery
 * times：类型-Number，一圈抽奖动画播放的次数
 
@@ -63,9 +63,9 @@ API
 * fun：类型-Function，抽奖结束执行的函数
 
 ####playRandom(result)
-以随机次序展示抽奖动画
+以随机次序展示抽奖动画，设置的函数需要在此之前调用
 * result：类型-Number，抽中的下标，从0开始
 
 ####playInTurn(result)
-以顺序的方式从第0个li开始展示抽奖动画
+以顺序的方式从第0个li开始展示抽奖动画，设置的函数需要在此之前调用
 * result：类型-Number，抽中的下标，从0开始
